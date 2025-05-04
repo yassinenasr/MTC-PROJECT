@@ -3,11 +3,13 @@ import { useFormik } from "formik";
 import { signUpValidator as validate } from "../utils/helpers/formValidator";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../services/axiosConfig";
-import toast from "react-hot-toast";
+import { ToastContainer , toast } from 'react-toastify';
+
 
 function Signup() {
   const navigate = useNavigate();
-  
+  const logintoast = () =>{ 
+    toast.success("Welcome To BoostU!");}
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -43,8 +45,8 @@ function Signup() {
   });
   return (
     <div className="wrapper dark:text">
-      <div className="p-8 mt-[8%] w-full h-max bg-lightColor-100 border-4 border-lightColor-300 dark:border-grayshade-300 dark:bg-grayshade-400 rounded-lg">
-        <div className="text-center mb-4">
+<div className="p-8 mt-[8%] w-1/2 h-max mx-auto bg-lightColor-100 border-4 border-lightColor-300 dark:border-grayshade-300 dark:bg-grayshade-400 rounded-lg">
+<div className="text-center mb-4">
           <h1 className="text-purpleshade-400 font-extrabold text-4xl mb-3">
             Sign Up
           </h1>
@@ -53,12 +55,13 @@ function Signup() {
           onSubmit={formik.handleSubmit}
           className="grid md:grid-cols-2 content-center"
         >
-          <div className="form-section">
+          <div className="form-section  md:col-span-2">
             <label htmlFor="firstName">First Name</label>
             <input
               id="firstName"
               name="firstName"
               type="text"
+              placeholder="Enter your first name"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.firstName}
@@ -68,14 +71,15 @@ function Signup() {
                 ? `*${formik.errors.firstName}`
                 : null}
             </span>
-          </div>
+          
 
-          <div className="form-section">
+       
             <label htmlFor="lastName">Last Name</label>
             <input
               id="lastName"
               name="lastName"
               type="text"
+              placeholder="Enter your last name"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.lastName}
@@ -85,14 +89,15 @@ function Signup() {
                 ? `*${formik.errors.lastName}`
                 : null}
             </span>
-          </div>
+          
 
-          <div className="form-section">
+          
             <label htmlFor="email">Email Address</label>
             <input
               id="email"
               name="email"
               type="email"
+              placeholder="Enter your email"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.email}
@@ -102,14 +107,15 @@ function Signup() {
                 ? `*${formik.errors.email}`
                 : null}
             </span>
-          </div>
+         
 
-          <div className="form-section">
+         
             <label htmlFor="password">Password</label>
             <input
               id="password"
               name="password"
               type="password"
+              placeholder="Enter your password"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.password}
@@ -122,11 +128,13 @@ function Signup() {
           </div>
 
           <div className="form-section items-center md:col-span-2">
-            <button type="submit">Sign Up</button>
+            <button type="submit" onClick={logintoast} >Sign Up</button>
             <Link to={"/auth/login"}>Login</Link>
           </div>
         </form>
       </div>
+      <ToastContainer />
+
     </div>
   );
 }

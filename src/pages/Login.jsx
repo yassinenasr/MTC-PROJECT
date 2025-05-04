@@ -45,8 +45,8 @@ function Login() {
   });
   return (
     <div className="wrapper dark:text">
-      <div className="p-8 mt-[8%] w-full h-max bg-lightColor-100 border-4 border-lightColor-300 dark:border-grayshade-300 dark:bg-grayshade-400 rounded-lg">
-        <div className="text-center mb-4">
+<div className="p-8 mt-[8%] w-1/2 h-max mx-auto bg-lightColor-100 border-4 border-lightColor-300 dark:border-grayshade-300 dark:bg-grayshade-400 rounded-lg">
+<div className="text-center mb-4">
           <h1 className="text-purpleshade-400 font-extrabold text-4xl mb-3">
             Login
           </h1>
@@ -58,6 +58,7 @@ function Login() {
               id="email"
               name="email"
               type="email"
+              placeholder="Enter your email"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.email}
@@ -75,6 +76,7 @@ function Login() {
               id="password"
               name="password"
               type="password"
+              placeholder="Enter your password"
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.password}

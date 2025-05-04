@@ -33,7 +33,7 @@ function App() {
                 />
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/products" element={<Products />} />
+                <Route path="/products" element={<Products />}  />
                 <Route path="/products/:id" element={<DetailPage />} />
                 <Route path="/*" element={<NotFound />} />
                 //preventing user to navigate to auth routes if has loged in already
